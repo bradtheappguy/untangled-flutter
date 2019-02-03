@@ -17,6 +17,8 @@ class TodoList extends StatelessWidget {
   final Function(Todo) onRemove;
   final Function(Todo) onUndoRemove;
 
+  String _task;
+
   TodoList({
     Key key,
     @required this.todos,
@@ -29,11 +31,29 @@ class TodoList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         color: const Color.fromRGBO(255, 255, 255, 1),
-        child: AppLoading(builder: (context, loading) {
-          return loading
-              ? LoadingIndicator(key: ArchSampleKeys.todosLoading)
-              : _buildListView();
-        }));
+        child: Column(
+          children: <Widget>[
+            AppLoading(builder: (context, loading) {
+              return loading
+                  ? LoadingIndicator(key: ArchSampleKeys.todosLoading)
+                  : Expanded(child: _buildListView());
+            }),
+            Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: TextFormField(
+                  initialValue: '',
+                  key: ArchSampleKeys.taskField,
+                  autofocus: false,
+                  decoration: InputDecoration(
+                    hintText: "I am going to...",
+                  ),
+                  validator: (val) {
+                    return val.trim().isEmpty ? "Empty Error" : null;
+                  },
+                  onSaved: (value) => _task = value,
+                ))
+          ],
+        ));
   }
 
   ListView _buildListView() {
