@@ -27,11 +27,13 @@ class TodoList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppLoading(builder: (context, loading) {
-      return loading
-          ? LoadingIndicator(key: ArchSampleKeys.todosLoading)
-          : _buildListView();
-    });
+    return Container(
+        color: const Color.fromRGBO(255, 255, 255, 1),
+        child: AppLoading(builder: (context, loading) {
+          return loading
+              ? LoadingIndicator(key: ArchSampleKeys.todosLoading)
+              : _buildListView();
+        }));
   }
 
   ListView _buildListView() {

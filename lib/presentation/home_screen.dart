@@ -19,9 +19,10 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ActiveTab(
       builder: (BuildContext context, AppTab activeTab) {
-        return Scaffold(
+        return Container(
+            child: Scaffold(
           appBar: AppBar(
-            title: Text("Untangeled"),
+            title: Image(image: AssetImage('assets/0.png')),
             actions: [
               FilterSelector(visible: activeTab == AppTab.todos),
               ExtraActionsContainer(),
@@ -37,7 +38,7 @@ class HomeScreen extends StatelessWidget {
             tooltip: "Add Todos",
           ),
           bottomNavigationBar: TabSelector(),
-        );
+        ));
       },
     );
   }
