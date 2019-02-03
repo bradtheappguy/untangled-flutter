@@ -9,7 +9,8 @@ class ArchSampleTheme {
     final originalTextTheme = ThemeData.light().textTheme;
     final originalBody1 = originalTextTheme.body1;
 
-    return ThemeData.dark().copyWith(
+    return ThemeData(
+        fontFamily: "Catamaran",
         primaryColor: Color.fromRGBO(22, 22, 28, 1),
         accentColor: Colors.cyan[300],
         buttonColor: Colors.red,

@@ -51,22 +51,12 @@ class _AddEditScreenState extends State<AddEditScreen> {
                 autofocus: !isEditing,
                 style: textTheme.headline,
                 decoration: InputDecoration(
-                  hintText: "New TODO HINT",
+                  hintText: "I am going to...",
                 ),
                 validator: (val) {
                   return val.trim().isEmpty ? "Empty Error" : null;
                 },
                 onSaved: (value) => _task = value,
-              ),
-              TextFormField(
-                initialValue: isEditing ? widget.todo.note : '',
-                key: ArchSampleKeys.noteField,
-                maxLines: 10,
-                style: textTheme.subhead,
-                decoration: InputDecoration(
-                  hintText: "Notes Hint",
-                ),
-                onSaved: (value) => _note = value,
               )
             ],
           ),

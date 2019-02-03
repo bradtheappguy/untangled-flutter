@@ -22,7 +22,9 @@ class HomeScreen extends StatelessWidget {
         return Container(
             child: Scaffold(
           appBar: AppBar(
-            title: Image(image: AssetImage('assets/0.png')),
+            title: Padding(
+                padding: EdgeInsets.all(5.0),
+                child: Image(image: AssetImage('assets/0.png'))),
             actions: [
               FilterSelector(visible: activeTab == AppTab.todos),
               ExtraActionsContainer(),
